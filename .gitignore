@@ -1,0 +1,9 @@
+# ProyectoFinal
+#Ignora la carpeta de modules
+modules
+#ignora todos los .txt
+.txt
+#ignora los archvos relacionados con API keys
+.env
+#Archivos de configuración
+.sass-cache

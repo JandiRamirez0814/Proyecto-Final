@@ -1,6 +1,6 @@
 
 # _Desarrollo de Aplicaciones para dispositivos moviles_
-# _Desarrollo de Software II_
+
 
 # Proyecto Final
 

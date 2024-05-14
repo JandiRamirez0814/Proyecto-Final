@@ -1,0 +1,47 @@
+<!-- Hoja 3: Foto de perfil -->
+<ons-page id="registro-paso3" >
+    <ons-toolbar style="background-color:#cb232c">
+        <div class left>
+            <ons-button id="descartar3">
+                <ons-icon  icon="ion-chevron-left"></ons-icon>
+            </ons-button>
+        </div>
+        <div class="center">Ultimo paso</div>
+    </ons-toolbar>
+    <div style="background: linear-gradient(to right, #cb232c, #ce1d61); text-align: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <ons-icon style="text-align: center; color:white" size="100px" icon="ion-ios-camera"></ons-icon>
+        <p>
+            <ons-input id="foto-perfil" type="file" accept="image/*" capture="camera" placeholder="Subir foto de perfil" float></ons-input>
+        </p>
+        <!-- Contenedor para los botones -->
+        <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+            <!-- Boton de regresar -->
+            <ons-button id="regresar3" style="background-color: white; color:#806059" onclick="document.querySelector('#myNavigator').popPage()">Regresar</ons-button>
+            <!-- Boton de continuar -->
+            <ons-button id="reg-final" style="background-color: white; color:#806059">Registrate</ons-button>
+        </div>
+    </div>
+
+    <!-- Diálogo de guardado -->
+    <ons-dialog id="guardando-dialog-reg">
+        <!--Aviso para guardado, con boton para confirmar guardado-->
+        <div class="alert-dialog-title">Usuario creado con exito!</div>
+        <div class="alert-dialog-content">
+            <p>¡Bienvenido a la comunidad!</p>
+        </div>
+        <div class="alert-dialog-footer">
+            <button id="guardar_final" class="alert-dialog-button" >Aceptar</button>
+        </div>
+    </ons-dialog>
+    <!-- Diálogo de confirmación -->
+    <ons-dialog id="confirmacion-dialog-r3">
+        <div class="alert-dialog-title">¿Descartar cambios?</div>
+        <div class="alert-dialog-content">
+            Los datos ingresados se perderán. ¿Desea continuar?
+        </div>
+        <div class="alert-dialog-footer">
+            <button  id="confirmar-button-r3" class="alert-dialog-button alert-dialog-button--outline">Cancelar</button>
+            <button class="alert-dialog-button" onclick="document.querySelector('#myNavigator').pushPage('html/init.html')">Aceptar</button>
+        </div>
+    </ons-dialog>
+</ons-page>

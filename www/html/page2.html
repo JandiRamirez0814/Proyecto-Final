@@ -1,0 +1,198 @@
+<ons-page id="page2">
+    <!-- Toolbar -->
+    <ons-toolbar style="background-color: #FF4848">
+        <!-- Botón de retroceso -->
+        <div class="left">
+            <ons-toolbar-button id="volver-button">
+                <ons-icon style="color: white" size="30px" icon="md-chevron-left"></ons-icon><br>
+                Guardar
+            </ons-toolbar-button>
+        </div>
+        <!-- Título -->
+        <div class="center">Crear Tarea</div>
+        <!-- Botón de guardar -->
+        <div class="right">
+            <ons-toolbar-button id="guardar-button">
+                <ons-icon style="color: white" size="30px" icon="fa-save"></ons-icon><br>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+
+    <!-- Contenido del formulario -->
+    <div style="padding: 20px;">
+        <form id="formulario-tarea">
+            <!-- Título -->
+            <label for="titulo">Título:</label><br>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="titulo" name="titulo" style="border-radius: 5px; background-color: #FFFFFF; height:40px; width: 300px; font:black;" placeholder="Ejemplo: Comprar leche" required>
+                <!-- Botón de agregar hora -->
+                <ons-fab id="add-hour" style="background-color: #FF4848; margin-left: 10px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
+                    <ons-icon style="color: white" size="24px" icon="md-time"></ons-icon>
+                </ons-fab>
+                <!-- Botón de agregar ubicación -->
+                <ons-fab id="add-location" style="background-color: #FF4848; margin-left: 10px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
+                    <ons-icon style="color: white" size="24px" icon="md-pin"></ons-icon>
+                </ons-fab>
+            </div>
+            <!-- Descripción -->
+            <label for="descripcion">Descripción:</label><br>
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                <input type="text" id="descripcion" name="descripcion" style="border-radius: 5px; background-color: #FFFFFF; height:40px; width: 300px; font:black;" placeholder="Ejemplo: Ir al supermercado y comprar una botella de leche" required>
+                <!-- Icono de reloj -->
+                <ons-fab id="clock-icon" style="background-color: #FF4848; margin-left: 10px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
+                    <ons-icon style="color: white" size="24px" icon="md-alarm"></ons-icon>
+                </ons-fab>
+                <!-- Menú desplegable -->
+                <ons-select id="repeticion" style="margin-left: 10px; border-radius: 0;color: blue;">
+                    <option value="opcion1">Todos lo dias</option>
+                    <option value="opcion2">No repetir</option>
+                    <option value="opcion3">Personalizar</option>
+                </ons-select>
+            </div>
+            <div id="recordatorios"></div>
+            <!--recordatorio example-->
+            <div class="color-box" style="display: flex; align-items: center; margin-bottom: 20px; margin-top: 20px;">
+                <!-- Bola de color -->
+                <div class="color-ball" style="width: 20px; height: 20px; border-radius: 50%; background-color: red; margin-right: 10px;"></div>
+                <!-- Texto "30 minutos antes" -->
+                <div class="text" style="flex-grow: 1;">30 minutos antes</div>
+                <!-- Icono de X -->
+                <div class="icon"><ons-icon icon="fa-times"></ons-icon></div>
+            </div>
+            <!-- Botón de agregar recordatorio -->
+            <div id="add-recordatorios" class="recordatorio" style="display: flex; align-items: center; margin-bottom: 40px; margin-top: 20px;">
+              <div class="icon">
+                <ons-icon icon="fa-plus" style="margin-left: 20px;width: 20px; height: 20px; border-radius: 50%; margin-right: 10px;"></ons-icon></div>
+                <div id= "add-record" class="text" style="flex-grow: 1;">Agregar Recordatorio</div>
+            </div>
+            <!--Importancia-->
+            <div id= "importancia" class="importancia" style="display: flex; justify-content: space-between; margin-bottom: 20px; border-radius: 10px; border: 3px solid  #FF4848;">
+                <div id="i-normal" style="display: flex; flex-direction: column; align-items: center; margin-left: 15%; margin-top: 10px; margin-bottom: 10px; border-radius: 10px; border: 3px solid #FF4848;">
+                    <ons-icon icon="fa-box" style="width: 30px; height: 30px; margin-top: 8px; "></ons-icon>
+                    <label style="flex-grow: 1; text-align: center; margin-top: 5px; margin-left: 5px; margin-right: 5px;">Normal</label><br>
+                </div>
+                <div id="i-importante" style="display: flex; flex-direction: column; align-items: center; margin-right: 15%; margin-top: 10px; margin-bottom: 10px; border-radius: 10px; border: 3px solid #FF4848;">
+                    <ons-icon icon="fa-star" style="width: 30px; height: 30px; margin-top: 8px; "></ons-icon>
+                    <label style="flex-grow: 1; text-align: center; margin-top: 5px; margin-left: 5px; margin-right: 5px;">Importante</label><br>
+                </div>
+            </div>
+            <!-- notas -->
+            <label for="Notas:">Notas:</label><br>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="notas" name="notas" style="border-radius: 5px; background-color: #FFFFFF; height:40px; width: 300px;font:black;" placeholder="Ejemplo: Ir a la reunión con vicente" required>
+            </div>
+        </form>
+    </div>
+
+    <!-- Diálogo de confirmación -->
+    <ons-dialog id="confirmacion-dialog">
+        <div class="alert-dialog-title">¿Descartar cambios?</div>
+        <div class="alert-dialog-content">
+            Los cambios que realizó se perderán. ¿Desea continuar?
+        </div>
+        <div class="alert-dialog-footer">
+            <button  id="confirmar-button" class="alert-dialog-button alert-dialog-button--outline">Cancelar</button>
+            <button class="alert-dialog-button" onclick="document.querySelector('#myNavigator').resetToPage('html/init-first.html')">Aceptar</button>
+        </div>
+    </ons-dialog>
+
+    <!-- Diálogo de guardado -->
+    <ons-dialog id="guardando-dialog">
+        <div style="text-align: center;">
+            <p>Guardando...</p>
+            <ons-progress-circular indeterminate></ons-progress-circular>
+        </div>
+    </ons-dialog>
+    <!-- Diálogo de fecha y hora -->
+    <ons-dialog id="date-time-dialog">
+    <div style="text-align: center; padding: 10px;">
+      <p>Selecciona una fecha y hora:</p>
+      <ons-input id="date-input" type="date" name="date-input"></ons-input>
+      <ons-input id="time-input" type="time" name="time-input"> Desde:</ons-input>
+      <ons-input id="hora-fin" type="time" name="hora-fin">Hasta:</ons-input>
+      <p>
+        <ons-button onclick="document.getElementById('date-time-dialog').hide()">Cerrar</ons-button>
+      </p>
+    </div>
+    </ons-dialog>
+    <!-- Diálogo de recordatorio -->
+    <ons-dialog id="reminder-dialog">
+        <div style="text-align: center;">
+            <p>Selecciona un recordatorio:</p>
+            <ons-select id="reminder-options">
+                <option value="1-hour">1 hora antes</option>
+                <option value="2-hours">2 horas antes</option>
+                <option value="1-day">1 día antes</option>
+                <option value="10-minutes">10 minutos antes</option>
+            </ons-select>
+            <p>Selecciona un color:</p>
+            <div id="color-options">
+                <div class="color-option" id="color-red">
+                    <input type="radio" id="radio-red" name="color" value="#FF0000">
+                    <label for="radio-red"></label>
+                </div>
+                <!-- Repite para los demás colores -->
+                <div class="color-option" id="color-blue">
+                    <input type="radio" id="radio-blue" name="color" value="#0000FF">
+                    <label for="radio-blue"></label>
+                </div>
+                <div class="color-option" id="color-green">
+                    <input type="radio" id="radio-green" name="color" value="#008000">
+                    <label for="radio-green"></label>
+                </div>
+                <div class="color-option" id="color-yellow">
+                    <input type="radio" id="radio-yellow" name="color" value="#FFFF00">
+                    <label for="radio-yellow"></label>
+                </div>
+                <div class="color-option" id="color-purple">
+                    <input type="radio" id="radio-purple" name="color" value="#c702dd">
+                    <label for="radio-purple"></label>
+                </div>
+            </div>
+            <style>
+            .color-option {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin: 5px;
+                border: 1px solid #000;
+                cursor: pointer;
+            }
+
+            .color-option input {
+                display: none;
+            }
+
+            .color-option label {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            .color-option selected {
+                border: 3px solid #000;
+            }
+
+            #color-red label {
+                background-color: #FF0000;
+            }
+
+            #color-blue label {
+                background-color: #0000FF;
+            }
+
+            #color-green label {
+                background-color: #008000;
+            }
+
+            #color-yellow label {
+                background-color: #FFFF00;
+            }
+
+            #color-purple label {
+                background-color: #c702dd;
+            }
+            </style>
+            <button id="close-reminder-dialog" class="alert-dialog-button" >Guardar</button>
+        </div>
+    </ons-dialog>
+</ons-page>

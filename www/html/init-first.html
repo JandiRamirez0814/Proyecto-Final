@@ -1,0 +1,108 @@
+<ons-page id="init-1">
+    <ons-splitter >
+        <ons-splitter-side id="menu-options" side="left" width="220px" collapse swipeable>
+            <ons-page>
+                <ons-list>
+                    <ons-list-item onclick="fn.load('html/location.html')" tappable>
+                        Home
+                    </ons-list-item>
+                </ons-list>
+            </ons-page>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="init-first.html"></ons-splitter-content>
+    </ons-splitter> 
+    <div id="custom-tabbar" style="height:40px">
+        <div id="tab1" onclick="fn.load('html/page1.html'), showTasks();">
+            <ons-icon icon="md-home" size="30px" style="color:white"></ons-icon>
+            <p style="color:white; font-size: 10px;">Tu dia</p>
+        </div>
+        <div id="tab2" onclick="fn.load('html/tab2.html'), showWeekTasks();">
+            <ons-icon icon="md-home" size="30px" style="color:white"></ons-icon>
+            <p style="color:white; font-size: 10px;">Tu semana</p>
+        </div>
+        <div id="tab3" onclick="fn.load('html/tab3.html')">
+            <ons-icon icon="md-home" size="30px" style="color:white"></ons-icon>
+            <p style="color:white; font-size: 10px;">Tu mes</p>
+        </div>
+    </div>
+    <style>
+        #custom-tabbar {
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #FF4848;
+            border-top: 1px solid #e7e7e7;
+            padding: 10px 0;
+        }
+
+        #custom-tabbar div {
+            flex:1;
+            text-align: center;
+            border-right: 1px solid #e7e7e7;
+        }
+        
+        #custom-tabbar div:last-child {
+            border-right: none;
+        }
+        #custom-tabbar div p {
+            margin-top: -4px; /* Ajusta este valor según tus necesidades */
+          }
+    </style>
+   
+    <ons-toolbar id="toolbar-home" style="background-color: #FF4848">
+        <div class="center">Tus Tareas</div>
+        <div class="left">
+            <ons-toolbar-button id="menu-button" onclick="fn.open()">
+                <ons-icon style="color: white;" size="30px" icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="right">
+            <ons-toolbar-button>
+                <ons-icon style="color: white" size="30px" icon="fa-question-circle"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+
+    <ons-fab id="add-button" style="background-color:#FF4848; position: fixed; right: 16px; bottom: 70px;">
+        <ons-icon style="color: white" icon="md-plus"></ons-icon>
+    </ons-fab>
+
+    <!--Dialog de MostrarInfo-->
+    <ons-dialog id="dialog-show-info-task">
+        <ons-toolbar style="background-color: #FF4848; color: white;">
+            <div  class="left" style="margin-left:15px;">Información de la tarea</div>
+            <!--boton para cerrar el dialog o icono en este caso-->
+            <div class="right">
+                <ons-toolbar-button id="cerrar-info-task-dialog">
+                    <ons-icon icon="md-close" style="color:white" onclick="document.getElementById('dialog-show-info-task').hide();"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+        <!--Div de la info-->
+        <div class="alert-dialog-content" style="text-align:left">
+            <p><span id="info-task-tile"></span></p>
+            <p>Descripcion: <span id="info-task-description"></span></p>
+            <p>Fecha: <span id="info-task-date"></span></p>
+            <p>Desde: <span id="info-task-time1"></span></p>
+            <p>Frecuencia: <span id="info-task-frecuency"></span></p>
+            <p>Prioridad: <span id="info-task-priority"></span></p>
+            <p>Notas: <span id="info-task-notes"></span></p>
+        </div>
+        <!--Div de boton de editar o eliminar-->
+        <div style="text-align: center; padding: 10px;">
+            <ons-button id="eliminar-task" style="background-color: #FF4848; color: white;" onclick="document.getElementById('dialog-delete-task').show();">Eliminar</ons-button>
+            <ons-button id="editar-task" style="background-color: #FF4848; color: white;" onclick="irAEditar();">Editar</ons-button>
+        </div>
+    </ons-dialog>
+    <!--dialog para confirmar eliminacion de la tarea-->
+    <ons-dialog id="dialog-delete-task">
+        <div class="alert-dialog-title">Eliminar Tarea</div>
+        <div class="alert-dialog-content">¿Estás seguro de que deseas eliminar esta tarea?</div>
+        <div class="alert-dialog-footer" style="text-align:center;">
+            <ons-button id="cancelar-delete-task" style="background-color: #FF4848; color: white;" onclick="document.getElementById('dialog-delete-task').hide();">Cancelar</ons-button>
+            <ons-button id="confirmar-delete-task" style="background-color: #FF4848; color: white;"  onclick="comfirmarDelete();">Eliminar</ons-button>
+        </div>
+    </ons-dialog>
+</ons-page>

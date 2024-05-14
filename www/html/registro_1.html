@@ -1,0 +1,37 @@
+<!-- Hoja 1: Datos personales -->
+<ons-page id="registro-paso1" >
+    <ons-toolbar style="background-color:#cb232c">
+        <div class left>
+            <ons-button id="descartar1">
+                <ons-icon  icon="ion-chevron-left"></ons-icon>
+            </ons-button>
+        </div>
+        <div class="center">Registrate!</div>
+    </ons-toolbar>
+    <div style="background: linear-gradient(to right, #cb232c, #ce1d61); text-align: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <ons-icon style="text-align: center; color:white" size="100px" icon="ion-ios-calendar"></ons-icon>
+        <p>
+            <ons-input id="nombre_r" modifier="underbar" placeholder="Nombre" float></ons-input>
+        </p>
+        <p>
+            <ons-input id="apellido_r" modifier="underbar" placeholder="Apellido" float></ons-input>
+        </p>
+        <p>
+            <ons-input id="fecha-nacimiento_r" class="data-input" modifier="underbar" placeholder="Fecha de nacimiento" float></ons-input>
+        </p>
+        <p style="margin-top: 30px;">
+            <ons-button id="reg1" style="background-color: white; color:#806059 " >Siguiente</ons-button>
+        </p>
+    </div>
+    <!-- Diálogo de confirmación -->
+    <ons-dialog id="confirmacion-dialog-r1">
+        <div class="alert-dialog-title">¿Descartar cambios?</div>
+        <div class="alert-dialog-content">
+            Los datos ingresados se perderán. ¿Desea continuar?
+        </div>
+        <div class="alert-dialog-footer">
+            <button  id="confirmar-button-r1" class="alert-dialog-button alert-dialog-button--outline">Cancelar</button>
+            <button class="alert-dialog-button" onclick="document.querySelector('#myNavigator').resetToPage('html/init.html')">Aceptar</button>
+        </div>
+    </ons-dialog>
+</ons-page>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "678571627660",
+    "project_id": "miapp-420521",
+    "storage_bucket": "miapp-420521.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678571627660:android:064e85193ad868c1aa97a9",
+        "android_client_info": {
+          "package_name": "miapp.jandi.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtI-Qik01glmL9f9WEncgfrh_jHwFWtGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
